@@ -4,26 +4,26 @@ using UnityEngine;
 
 public class GroundCheck : MonoBehaviour
 {
-	public static LayerMask ground_Layer = 0;
-	public static float margin = 0.1f;
+	static LayerMask ground_Layer = 0;
+	static float margin = 0.1f;
 
 	CapsuleCollider2D collid;
 	Rigidbody2D rigid;
 
-	RaycastHit2D touchedGround;
-	protected GameObject touchedGround_Obj {
+	public RaycastHit2D touchedGround;
+	public GameObject touchedGround_Obj {
 		get {
 			return touchedGround.collider.gameObject;
 		}
 	}
-	protected bool is_OnGround {
+	public bool is_OnGround {
 		get {
 			return (rigid.velocity.y == 0) && (touchedGround.collider != null);
 		}
 	}
 
 
-	void BoxCast_Down_By_Ground () {
+	public void BoxCast_Down_By_Ground () {
 		//print ("casted");
 		touchedGround = Physics2D.BoxCast (
 		collid.bounds.center, //시작점
@@ -35,7 +35,7 @@ public class GroundCheck : MonoBehaviour
 		);
 	}
 
-	void Debug_ShowCast_Ground () {
+	public void Debug_ShowCast_Ground () {
 		Color rayColor = is_OnGround ? Color.red : Color.green;
 		Debug.DrawRay (
 			collid.bounds.center - collid.bounds.extents + new Vector3 (margin, -margin, 0f), //시작점
