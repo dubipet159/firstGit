@@ -33,17 +33,25 @@ public class PlayerKey
 	public Key weaponSkill_1;
 	public Key weaponSkill_2;
 
+	Key[] KeyArr = new Key[11];
+
+	public void UpdateKey () {
+		for (int i = 0; i < KeyArr.Length; i++) {
+			KeyArr[i].UpdateKey ();
+		}
+	}
+
 	public PlayerKey () {
-		left = new Key (KeyCode.LeftArrow);
-		right = new Key (KeyCode.RightArrow);
-		down = new Key (KeyCode.DownArrow);
-		up = new Key (KeyCode.UpArrow);
-		jump = new Key (KeyCode.Space);
-		attack = new Key (KeyCode.A);
-		skill = new Key (KeyCode.S);
-		dash = new Key (KeyCode.D);
-		weaponSwap = new Key (KeyCode.Q);
-		weaponSkill_1 = new Key (KeyCode.W);
-		weaponSkill_2 = new Key (KeyCode.E);
+		KeyArr[0] = left = new Key ("left",KeyCode.LeftArrow);
+		KeyArr[1] = right = new Key ("right", KeyCode.RightArrow);
+		KeyArr[2] = down = new Key ("down", KeyCode.DownArrow);
+		KeyArr[3] = up = new Key ("up", KeyCode.UpArrow);
+		KeyArr[4] = jump = new Key ("jump", KeyCode.Space);
+		KeyArr[5] = attack = new Key ("attack", KeyCode.A);
+		KeyArr[6] = skill = new Key ("skill", KeyCode.S);
+		KeyArr[7] = dash = new Key ("dash", KeyCode.D);
+		KeyArr[8] = weaponSwap = new Key ("weaponSwap", KeyCode.Q);
+		KeyArr[9] = weaponSkill_1 = new Key ("weaponSkill_1", KeyCode.W);
+		KeyArr[10] = weaponSkill_2 = new Key ("weaponSkill_2", KeyCode.E);
 	}
 }

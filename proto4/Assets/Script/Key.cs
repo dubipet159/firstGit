@@ -22,28 +22,34 @@ public class Key
 	}
 	//
 	KeyCode value;
+	string name;
 	public bool is_keyIn {
-		get {
-			return Input.GetKeyDown (value);
-		}
+		get {return Input.GetKeyDown (value);}
+		set { }
 	}
 	public bool is_keyActive {
-		get {
-			return Input.GetKey (value);
-		}
+		get {return Input.GetKey (value);}
+		set { }
 	}
 	public bool is_keyOut {
-		get {
-			return Input.GetKeyUp (value);
-		}
+		get {return Input.GetKeyUp (value);}
+		set { }
 	}
+
+	public void UpdateKey () {
+		is_keyIn = Input.GetKeyDown (value);
+		is_keyActive = Input.GetKey (value);
+		is_keyOut = Input.GetKeyUp (value);
+	}
+
 	public void SetKey (KeyCode k) {
 		value = k;
 	}
 	public KeyCode GetKey () {
 		return value;
 	}
-	public Key (KeyCode k) {
+	public Key (string n,KeyCode k) {
+		name = n;
 		value = k;
 	}
 }

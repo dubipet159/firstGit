@@ -51,7 +51,7 @@ public class GroundCheck : MonoBehaviour
 
 	private void Awake () {
 		if (ground_Layer == 0)
-			LayerMask.GetMask ("Ground");
+			ground_Layer = LayerMask.GetMask ("Ground");
 
 		collid = GetComponentInChildren<CapsuleCollider2D> ();
 		rigid = GetComponent<Rigidbody2D> ();
