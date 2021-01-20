@@ -15,9 +15,9 @@ public class Inverter : Node {
 				_state = NodeState.Running;
 				break;
 			case NodeState.Success:
-				_state = NodeState.Fail;
+				_state = NodeState.Failed;
 				break;
-			case NodeState.Fail:
+			case NodeState.Failed:
 				_state = NodeState.Success;
 				break;
 		}

@@ -11,5 +11,5 @@ public abstract class Node
 
 }
 public enum NodeState {
-	Fail, Success, Running
+	Failed, Success, Running
 }

@@ -23,6 +23,21 @@ public class Key
 	//
 	KeyCode value;
 	string name;
+
+	public string GetKeyName () {
+		return name;
+	}
+
+	public string ReturnKeyStatus () {
+		string s = name;
+		if (is_keyIn) s += ": IN";
+		else if (is_keyOut) s += ": OUT";
+		else if (is_keyActive) s += ": ACTIVE";
+		else s += ": ";
+		s += System.Environment.NewLine;
+		return s;
+	}
+
 	public bool is_keyIn {
 		get {return Input.GetKeyDown (value);}
 		set { }

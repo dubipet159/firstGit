@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Selector : Node {
-	protected List<Node> nodes = new List<Node> ();
+	protected List<Node> nodeList = new List<Node> ();
 	public Selector (List<Node> nl) {
-		this.nodes = nl;
+		this.nodeList = nl;
 	}
 
 	public override NodeState Evaluate () {
-		foreach (var node in nodes) {
+		foreach (var node in nodeList) {
 			switch (node.Evaluate ()) {
 
 				case NodeState.Running:
@@ -18,11 +18,11 @@ public class Selector : Node {
 				case NodeState.Success:
 					_state = NodeState.Success;
 					break;
-				case NodeState.Fail:
+				case NodeState.Failed:
 					break;
 			}
 		}
-		_state = NodeState.Fail;
+		_state = NodeState.Failed;
 		return _state;
 	}
 }

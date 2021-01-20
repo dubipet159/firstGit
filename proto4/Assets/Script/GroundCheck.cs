@@ -16,10 +16,10 @@ public class GroundCheck : MonoBehaviour
 			return touchedGround.collider.gameObject;
 		}
 	}
-	public bool is_OnGround {
-		get {
-			return (rigid.velocity.y == 0) && (touchedGround.collider != null);
-		}
+	public bool is_OnGround = false;
+
+	void Check_Is_OnGround () {
+		is_OnGround = (rigid.velocity.y == 0) && (touchedGround.collider != null);
 	}
 
 
@@ -55,5 +55,10 @@ public class GroundCheck : MonoBehaviour
 
 		collid = GetComponentInChildren<CapsuleCollider2D> ();
 		rigid = GetComponent<Rigidbody2D> ();
+	}
+
+	private void Update () {
+		BoxCast_Down_By_Ground ();
+		Check_Is_OnGround ();
 	}
 }
