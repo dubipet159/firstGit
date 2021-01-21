@@ -1,34 +1,37 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class KeySet
 {
-	List<Key> KeyList;
+
+	List<Key> _KeyList;
+	public List<Key> KeyList {get { return _KeyList; }}
 
 	public string Return_AllKeyStatus () {
 		string s = "";
-		for (int i = 0; i < KeyList.Count; i++) {
-			s += KeyList[i].ReturnKeyStatus ();
+		for (int i = 0; i < _KeyList.Count; i++) {
+			s += _KeyList[i].ReturnKeyStatus ();
 		}
 		return s;
 	}
 
 	public Key GetKey (string name) {
-		for (int i = 0; i < KeyList.Count; i++) {
-			if (KeyList[i].GetKeyName () == name) return KeyList[i];
+		for (int i = 0; i < _KeyList.Count; i++) {
+			if (_KeyList[i].name == name) return _KeyList[i];
 		}
 		return null;
 	}
 
 	public void Update_AllKey () {
-		for (int i = 0; i < KeyList.Count; i++) {
-			KeyList[i].UpdateKey ();
+		for (int i = 0; i < _KeyList.Count; i++) {
+			_KeyList[i].UpdateKey ();
 		}
 	}
 
 	public void AddKey (Key k) {
-		if (KeyList == null) KeyList = new List<Key> ();
-		KeyList.Add (k);
+		if (_KeyList == null) _KeyList = new List<Key> ();
+		_KeyList.Add (k);
 	}
 }
