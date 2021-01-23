@@ -499,7 +499,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c8bae37f2eec5e4a904b8dc684abe6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  is_OnGround: 0
 --- !u!114 &628347441
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -528,6 +527,8 @@ MonoBehaviour:
   maxMoveSpeed: 20
   jumpPower: 20
   frictionRate: 0.925
+  is_OnGround: 0
+  is_Jumping: 0
 --- !u!114 &628347443
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -553,6 +554,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4c4ab448f9f1204aa8bd000987718c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  debugText: {fileID: 26721243}
 --- !u!1 &862531842
 GameObject:
   m_ObjectHideFlags: 0

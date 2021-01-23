@@ -16,10 +16,9 @@ public class GroundCheck : MonoBehaviour
 			return touchedGround.collider.gameObject;
 		}
 	}
-	public bool is_OnGround = false;
 
-	void Check_Is_OnGround () {
-		is_OnGround = (rigid.velocity.y == 0) && (touchedGround.collider != null);
+	public bool Check_Is_OnGround () {
+		return(rigid.velocity.y == 0) && (touchedGround.collider != null);
 	}
 
 
@@ -36,7 +35,7 @@ public class GroundCheck : MonoBehaviour
 	}
 
 	public void Debug_ShowCast_Ground () {
-		Color rayColor = is_OnGround ? Color.red : Color.green;
+		Color rayColor = Check_Is_OnGround() ? Color.red : Color.green;
 		Debug.DrawRay (
 			collid.bounds.center - collid.bounds.extents + new Vector3 (margin, -margin, 0f), //시작점
 			Vector2.right * (collid.bounds.size.x - margin * 2), //길이,방향
@@ -59,6 +58,5 @@ public class GroundCheck : MonoBehaviour
 
 	private void Update () {
 		BoxCast_Down_By_Ground ();
-		Check_Is_OnGround ();
 	}
 }

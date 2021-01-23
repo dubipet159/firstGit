@@ -48,6 +48,10 @@ public class moveFunctions : MonoBehaviour {
 		Set_X_Velocity (0);
 	}
 
+	public bool is_Jumping () {
+		return rigid.velocity.y > 0;
+	}
+
 
 	//수평 속도 비율로 곱
 	public void Multiply_X_Velocity (float rate) {
